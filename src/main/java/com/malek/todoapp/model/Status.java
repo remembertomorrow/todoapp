@@ -36,6 +36,6 @@ public class Status {
     @Getter
     @Setter
     @JsonBackReference
-    private Set<Task> products;
+    private Set<Task> tasks;
 
 }
