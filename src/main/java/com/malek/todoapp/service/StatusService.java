@@ -3,6 +3,7 @@ package com.malek.todoapp.service;
 import com.malek.todoapp.model.Status;
 import com.malek.todoapp.repository.StatusRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
