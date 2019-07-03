@@ -20,6 +20,7 @@ public class Status {
     @Getter
     @Setter
     @Column(name = "status", nullable = false)
+    @Enumerated(EnumType.STRING)
     private StatusEnum status;
 
     @Getter
@@ -37,6 +38,6 @@ public class Status {
     @ManyToOne
     @JoinColumn(name="task_id", nullable=false)
     @JsonIgnore
-    private Task task;
+    private Task task ;
 
 }

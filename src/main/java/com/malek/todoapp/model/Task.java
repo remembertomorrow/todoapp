@@ -45,6 +45,7 @@ public class Task {
     @Getter
     @Setter
     @Column(name = "priority", nullable = false)
+    @Enumerated(EnumType.STRING)
     private PriorityEnum priority;
 
 
