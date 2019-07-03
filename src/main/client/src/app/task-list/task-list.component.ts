@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ApiService} from "../shared/api.service";
+import {TaskViewModel} from "../shared/model/task-view-model";
 
 @Component({
   selector: 'app-task-list',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TaskListComponent implements OnInit {
 
-  constructor() { }
+  tasks: TaskViewModel[] = [];
+
+  constructor(private apiService: ApiService) { }
 
   ngOnInit() {
+    this.getAllTasks();
   }
 
+  public getAllTasks(){
+    this.apiService.getAllTasks().subscribe(
+      res => {
+        this.tasks = res;
+      },
+      error1 => {
+        alert(this.apiService.env.generalError)
+      }
+    );
+  }
 }

@@ -15,6 +15,6 @@ public class StatusDto {
 
     private LocalDateTime finishDate;
 
-    private Set<Task> products;
+    private Set<Task> tasks;
 
 }

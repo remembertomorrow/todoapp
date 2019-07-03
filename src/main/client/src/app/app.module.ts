@@ -6,6 +6,12 @@ import { AppComponent } from './app.component';
 import { TaskComponent } from './task/task.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import {Router, RouterModule, Routes, Event, NavigationStart, NavigationEnd} from "@angular/router";
+import {HttpClientModule} from "@angular/common/http";
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatListModule} from '@angular/material/list';
+
 
 const appRoutes
 
@@ -36,7 +42,13 @@ const appRoutes
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatGridListModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
