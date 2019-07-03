@@ -6,6 +6,7 @@ import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity(name = "task")
 public class Task {
@@ -41,10 +42,8 @@ public class Task {
     @Column(name = "modify_date", nullable = true)
     private LocalDateTime modifyDate;
 
-    @ManyToOne
     @Getter
     @Setter
-    @JoinColumn(name="status_id", nullable=false)
-    @JsonIgnore
-    private Status status;
+    @OneToMany(mappedBy = "task")
+    private Set<Status> statuses;
 }

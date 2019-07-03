@@ -10,6 +10,8 @@ import java.time.LocalDateTime;
 @Data
 public class TaskDto {
 
+    private Long statusId;
+
     private String title;
 
     private String description;

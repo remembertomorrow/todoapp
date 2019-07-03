@@ -1,8 +1,8 @@
 package com.malek.todoapp.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
-import net.minidev.json.annotate.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -32,10 +32,11 @@ public class Status {
     @Column(name = "finish_date", nullable = true)
     private LocalDateTime finishDate;
 
-    @OneToMany(mappedBy = "status")
     @Getter
     @Setter
-    @JsonBackReference
-    private Set<Task> tasks;
+    @ManyToOne
+    @JoinColumn(name="task_id", nullable=false)
+    @JsonIgnore
+    private Task task;
 
 }
