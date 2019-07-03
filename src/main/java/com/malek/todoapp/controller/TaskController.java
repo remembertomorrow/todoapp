@@ -49,6 +49,7 @@ public class TaskController {
             task.setDueDate(taskDto.getDueDate());
         }
         task.setCreateDate(LocalDateTime.now());
+        task.setPriority(taskDto.getPriority());
         Status status = new Status();
         status.setStartDate(LocalDateTime.now());
         status.setStatus(StatusEnum.OPEN);
@@ -71,7 +72,9 @@ public class TaskController {
             task.setDueDate(taskDto.getDueDate());
         }
         task.setModifyDate(LocalDateTime.now());
-
+        if(taskDto.getDueDate() != null && !task.getDueDate().equals(taskDto.getDueDate())) {
+            task.setPriority(taskDto.getPriority());
+        }
         Status oldStatus = TaskUtils.getTasksCurrentStatus(task);
         if(!oldStatus.equals(taskDto.getStatus())){
             oldStatus.setFinishDate(LocalDateTime.now());

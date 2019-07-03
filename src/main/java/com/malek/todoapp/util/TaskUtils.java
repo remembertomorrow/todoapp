@@ -29,6 +29,7 @@ public class TaskUtils {
         if(t.getModifyDate() != null){
             taskDto.setModifyDate(t.getModifyDate());
         }
+        taskDto.setPriority(t.getPriority());
         taskDto.setStatus(getTasksCurrentStatus(t));
         return taskDto;
     }

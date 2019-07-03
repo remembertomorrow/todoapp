@@ -44,6 +44,12 @@ public class Task {
 
     @Getter
     @Setter
+    @Column(name = "priority", nullable = false)
+    private PriorityEnum priority;
+
+
+    @Getter
+    @Setter
     @OneToMany(mappedBy = "task")
     private Set<Status> statuses;
 }

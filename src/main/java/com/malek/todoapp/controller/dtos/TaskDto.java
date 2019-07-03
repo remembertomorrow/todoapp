@@ -1,5 +1,6 @@
 package com.malek.todoapp.controller.dtos;
 
+import com.malek.todoapp.model.PriorityEnum;
 import com.malek.todoapp.model.Status;
 import lombok.Data;
 import lombok.Getter;
@@ -21,6 +22,8 @@ public class TaskDto {
     private LocalDateTime createDate;
 
     private LocalDateTime modifyDate;
+
+    private PriorityEnum priority;
 
     private Status status;
 }
