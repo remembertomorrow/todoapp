@@ -1,17 +1,15 @@
-package com.malek.todoapp.controller.dtos;
+package com.malek.todoapp.dto;
 
 import com.malek.todoapp.model.PriorityEnum;
 import com.malek.todoapp.model.Status;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.time.LocalDateTime;
 
 @Data
 public class TaskDto {
 
-    private Long statusId;
+    private Long taskId;
 
     private String title;
 

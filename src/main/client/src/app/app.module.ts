@@ -11,6 +11,8 @@ import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatListModule} from '@angular/material/list';
+import {MatIconModule} from '@angular/material/icon';
+
 
 
 const appRoutes
@@ -24,6 +26,10 @@ const appRoutes
     path: "",
     component: TaskListComponent,
     pathMatch: "full"
+  },
+  {
+    path: "tasks/:task_id",
+    component: TaskComponent,
   }
   // ,
   // {
@@ -48,7 +54,8 @@ const appRoutes
     MatGridListModule,
     MatButtonModule,
     MatCheckboxModule,
-    MatListModule
+    MatListModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ApiService} from "../shared/api.service";
 import {TaskViewModel} from "../shared/model/task-view-model";
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'app-task-list',
@@ -23,7 +24,7 @@ export class TaskListComponent implements OnInit {
         this.tasks = res;
       },
       error1 => {
-        alert(this.apiService.env.generalError)
+        alert(environment.generalError)
       }
     );
   }

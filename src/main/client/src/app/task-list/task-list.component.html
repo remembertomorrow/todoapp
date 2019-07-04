@@ -1,14 +1,20 @@
-<div class="absolute">
-  <mat-grid-list cols="4" rowHeight="100px" gutterSize="20">
-    <mat-grid-tile
-      *ngFor="let task of tasks"
-      [colspan]=4
-      [rowspan]=1
-      [style.background]="yellow"
-      class="rcorners">
-      <button mat-button >{{task.title}}</button>
-    </mat-grid-tile>
-  </mat-grid-list>
+<div id="mainContainer">
+
+  <mat-list gutterSize="20">
+    <mat-list-item  *ngFor="let task of tasks">
+      <mat-icon mat-list-icon>assignment</mat-icon>
+      <h4 mat-line>{{task.title}}</h4>
+      <p mat-line *ngIf="task.status.status === 'OPEN'"
+         [ngStyle]="{'color': task.status.status === 'OPEN' ? 'blue' : 'white'}">{{task.status.status}}</p>
+      <p mat-line *ngIf="task.status.status === 'IN_PROGRESS'"
+         [ngStyle]="{'color': task.status.status === 'IN_PROGRESS' ? 'orange' : 'white'}">{{task.status.status}}</p>
+      <p mat-line *ngIf="task.status.status === 'COMPLETED'"
+         [ngStyle]="{'color': task.status.status === 'COMPLETED' ? 'green' : 'white'}">{{task.status.status}}</p>
+      <p mat-line *ngIf="task.status.status === 'ABORTED'"
+         [ngStyle]="{'color': task.status.status === 'ABORTED' ? 'grey' : 'white'}">{{task.status.status}}</p>
+      <button mat-button [routerLink]="['/task', task.task_id]"> Details </button>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+  </mat-list>
 </div>
 
-<!--<button mat-button [routerLink]="['/products', category.category_id, category.category_colour]">{{category.name}}</button>-->

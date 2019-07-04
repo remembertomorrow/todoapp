@@ -31,7 +31,4 @@ public class StatusService {
     public void updateStatus(Long id, Status status){
         statusRepository.save(status);
     }
-    public void deleteStatus(Long id){
-        statusRepository.deleteById(id);
-    }
 }

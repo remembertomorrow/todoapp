@@ -1,4 +1,4 @@
-package com.malek.todoapp.controller.dtos;
+package com.malek.todoapp.dto;
 
 import com.malek.todoapp.model.StatusEnum;
 import com.malek.todoapp.model.Task;

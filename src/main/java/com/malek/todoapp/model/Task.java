@@ -24,6 +24,7 @@ public class Task {
 
     @Getter
     @Setter
+
     @Column(name = "description", nullable = false)
     private String description;
 
