@@ -44,13 +44,13 @@ public class Test2 {
         MockitoAnnotations.initMocks(this);
     }
 
-    @Test
-    public void it_should_return_task() throws Exception{
-        Task task = new Task();
-        task.setTaskId(1L);
-        when(taskService.getTask(1L)).thenReturn(task);
-
-        TaskDto t = taskController.getTask(1L);
-        assertEquals(1L, t.getTaskId().longValue());
-    }
+//    @Test
+//    public void it_should_return_task() throws Exception{
+//        Task task = new Task();
+//        task.setTaskId(1L);
+//        when(taskService.getTask(1L)).thenReturn(task);
+//
+//        TaskDto t = taskController.getTask(1L);
+//        assertEquals(1L, t.getTaskId().longValue());
+//    }
 }

@@ -6,10 +6,7 @@ import com.malek.todoapp.model.StatusEnum;
 import com.malek.todoapp.model.Task;
 import com.malek.todoapp.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;

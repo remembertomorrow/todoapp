@@ -12,7 +12,7 @@
          [ngStyle]="{'color': task.status.status === 'COMPLETED' ? 'green' : 'white'}">{{task.status.status}}</p>
       <p mat-line *ngIf="task.status.status === 'ABORTED'"
          [ngStyle]="{'color': task.status.status === 'ABORTED' ? 'grey' : 'white'}">{{task.status.status}}</p>
-      <button mat-button [routerLink]="['/task', task.task_id]"> Details </button>
+      <button mat-button [routerLink]="['/task', task.taskId]"> Details </button>
       <mat-divider></mat-divider>
     </mat-list-item>
   </mat-list>

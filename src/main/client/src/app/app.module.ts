@@ -28,14 +28,9 @@ const appRoutes
     pathMatch: "full"
   },
   {
-    path: "tasks/:task_id",
+    path: "task/:taskId",
     component: TaskComponent,
   }
-  // ,
-  // {
-  //   path: "**",
-  //   component: NotFoundComponent
-  // }
 ];
 
 

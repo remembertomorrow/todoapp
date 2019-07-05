@@ -22,6 +22,7 @@ export class TaskListComponent implements OnInit {
     this.apiService.getAllTasks().subscribe(
       res => {
         this.tasks = res;
+
       },
       error1 => {
         alert(environment.generalError)
