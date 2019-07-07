@@ -1,10 +1,8 @@
-package com.malek.todoapp;
+package com.malek.todoapp.service;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.malek.todoapp.controller.TaskController;
 import com.malek.todoapp.dto.TaskDto;
 import com.malek.todoapp.model.Task;
-import com.malek.todoapp.repository.StatusRepository;
 import com.malek.todoapp.repository.TaskRepository;
 import com.malek.todoapp.service.StatusService;
 import com.malek.todoapp.service.TaskService;
@@ -14,6 +12,7 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -25,16 +24,16 @@ import static com.sun.javaws.JnlpxArgs.verify;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
-@RunWith(SpringRunner.class)
-@WebMvcTest(TaskController.class)
+@RunWith(MockitoJUnitRunner.class)
+//@WebMvcTest(TaskController.class)
 @Component
-public class Test2 {
+public class TaskServiceTest {
 
     @InjectMocks
-    private TaskController taskController;
+    private TaskService taskService;
 
     @Mock
-    private TaskService taskService;
+    private TaskRepository taskRepository;
 
     @Mock
     private StatusService statusService;
@@ -44,13 +43,20 @@ public class Test2 {
         MockitoAnnotations.initMocks(this);
     }
 
-//    @Test
-//    public void it_should_return_task() throws Exception{
-//        Task task = new Task();
-//        task.setTaskId(1L);
-//        when(taskService.getTask(1L)).thenReturn(task);
-//
-//        TaskDto t = taskController.getTask(1L);
-//        assertEquals(1L, t.getTaskId().longValue());
-//    }
+    @Test
+    public void it_should_return_task() throws Exception{
+        Task task = new Task();
+        task.setTaskId(1L);
+        when(taskRepository.getOne(1L)).thenReturn(task);
+
+        TaskDto t = taskService.getTask(1L);
+        assertEquals(1L, t.getTaskId().longValue());
+
+    }
+
+//    /nowy test
+
+    //co jak id null
+    // co jak zle id
+
 }

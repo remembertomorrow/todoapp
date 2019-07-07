@@ -5,6 +5,7 @@ import com.malek.todoapp.model.Status;
 import com.malek.todoapp.model.StatusEnum;
 import com.malek.todoapp.model.Task;
 import com.malek.todoapp.repository.TaskRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
@@ -13,6 +14,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@Slf4j
 public class TaskService {
 
     @Autowired
@@ -22,10 +24,14 @@ public class TaskService {
     private StatusService statusService;
 
     public List<TaskDto> getAllTasks(){
+
+        log.info("invoke select * from tasks");
+
         List<TaskDto> list = new ArrayList<>();
         taskRepository.findAll().forEach(t -> {
             list.add(getTaskDto(t));
         });
+
         return list;
     }
 
@@ -35,6 +41,8 @@ public class TaskService {
 
     public void addTask(TaskDto taskDto){
 
+        log.info("invoke insert into tasks title = {}", taskDto.getTitle());
+
         Task task = new Task();
         task.setTitle(taskDto.getTitle());
         task.setDescription(taskDto.getDescription());
@@ -43,15 +51,19 @@ public class TaskService {
         }
         task.setCreateDate(LocalDateTime.now());
         task.setPriority(taskDto.getPriority());
+        taskRepository.save(task);
+
         Status status = new Status();
         status.setStartDate(LocalDateTime.now());
         status.setStatus(StatusEnum.OPEN);
         status.setTask(task);
         statusService.addStatus(status);
-        taskRepository.save(task);
+
     }
 
     public void updateTask(Long id, TaskDto taskDto){
+
+        log.info("invoke update task with id = {}", id);
 
         Task task = taskRepository.findById(id).get();
         task.setTitle(taskDto.getTitle());
