@@ -36,7 +36,7 @@ public class TaskService {
     }
 
     public TaskDto getTask(long id){
-        return getTaskDto(taskRepository.findById(id).get());
+        return getTaskDto(taskRepository.getOne(id));
     }
 
     public void addTask(TaskDto taskDto){
